@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hack NASA</title>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+    }
+    .blink {
+        animation: blinker 1s linear infinite;
+    }
+    @keyframes blinker {
+        50% { opacity: 0; }
+    }
+    .warning {
+        color: red;
+        font-size: 2em;
+        margin-top: 20vh;
+    }
+    img {
+        width: 250px;
+        height: auto;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <h1 class="warning blink">WARNING: TOP SECRET</h1>
+    <p>Initiating Hack...</p>
+    <img src="skull.png" alt="Skull Image">
+    <p>Preparing to infiltrate NASA's coffee machine. Estimated time until espresso: 3... 2... 1...</p>
+    <script>
+        function initiateHack() {
+            const messages = ["Brewing...", "Adding secret ingredient...", "Hack successful! Enjoy your space coffee!"];
+            let index = 0;
+            setInterval(() => {
+                if (index < messages.length) {
+                    document.getElementById("status").innerText = messages[index++];
+                }
+            }, 1000);
+        }
+
+        window.onload = initiateHack;
+    </script>
+    <p id="status"></p>
+</body>
+</html>
