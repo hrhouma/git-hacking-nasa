@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>System Hacked!</title>
+<style>
+    body {
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+        background-color: red; /* Intense red background */
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+        overflow: hidden; /* Prevents scrollbars */
+    }
+    .warning {
+        color: yellow; /* Bright yellow warning text */
+        font-size: 4em;
+        position: fixed; /* Keeps the text fixed at the top */
+        width: 100%; /* Full width */
+        top: 20px; /* Distance from the top */
+        left: 0; /* Align to the left */
+        animation: blinker 1s linear infinite;
+    }
+    @keyframes blinker {
+        50% { opacity: 0; }
+    }
+    img {
+        width: 100vw; /* Set the skull to cover the entire viewport width */
+        position: fixed; /* Fixed position */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Adjust for exact centering */
+        z-index: -1; /* Ensures text appears above the image */
+    }
+</style>
+</head>
+<body>
+    <h1 class="warning">WARNING: SYSTEM HACKED!</h1>
+    <img src="large_menacing_skull.png" alt="Menacing Skull" />
+    <script>
+        function initiateWarning() {
+            const messages = ["Critical breach detected...", "Securing data vaults...", "Deploying countermeasures..."];
+            let index = 0;
+            setInterval(() => {
+                if (index < messages.length) {
+                    document.getElementById("status").innerText = messages[index++];
+                }
+            }, 1000);
+        }
+
+        window.onload = initiateWarning;
+    </script>
+    <p id="status" style="position: fixed; bottom: 10px; width: 100%; text-align: center;"> </p>
+</body>
+</html>
